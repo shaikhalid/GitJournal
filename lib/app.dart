@@ -276,7 +276,7 @@ class _JournalAppState extends State<JournalApp> {
   @override
   Widget build(BuildContext context) {
     return DynamicTheme(
-      defaultBrightness: Brightness.light,
+      defaultBrightness: Brightness.dark,
       data: (b) => b == Brightness.light ? Themes.light : Themes.dark,
       themedWidgetBuilder: buildApp,
     );

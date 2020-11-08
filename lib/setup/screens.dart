@@ -661,21 +661,21 @@ class GitHostChoicePage extends StatelessWidget {
             style: Theme.of(context).textTheme.headline5,
           ),
           const SizedBox(height: 16.0),
-          GitHostSetupButton(
-            text: "GitHub",
-            iconUrl: 'assets/icon/github-icon.png',
-            onPressed: () {
-              onKnownGitHost(GitHostType.GitHub);
-            },
-          ),
-          const SizedBox(height: 8.0),
-          GitHostSetupButton(
-            text: "GitLab",
-            iconUrl: 'assets/icon/gitlab-icon.png',
-            onPressed: () async {
-              onKnownGitHost(GitHostType.GitLab);
-            },
-          ),
+          // GitHostSetupButton(
+          //   text: "GitHub",
+          //   iconUrl: 'assets/icon/github-icon.png',
+          //   onPressed: () {
+          //     onKnownGitHost(GitHostType.GitHub);
+          //   },
+          // ),
+          // const SizedBox(height: 8.0),
+          // GitHostSetupButton(
+          //   text: "GitLab",
+          //   iconUrl: 'assets/icon/gitlab-icon.png',
+          //   onPressed: () async {
+          //     onKnownGitHost(GitHostType.GitLab);
+          //   },
+          // ),
           const SizedBox(height: 8.0),
           GitHostSetupButton(
             text: tr('setup.host.custom'),

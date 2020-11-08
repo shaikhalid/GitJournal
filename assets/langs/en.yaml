@@ -169,7 +169,7 @@ actions:
   newChecklist: New Checklist
 screens:
   home:
-    allNotes: All Notes
+    allNotes: All Posts
   folders:
     title: Folders
     selected: Folder Selected
@@ -279,7 +279,7 @@ ignoredFiles:
   ext: Doesn't end with one of the following -
 drawer:
   setup: Setup Git Host
-  pro: Unlock Pro Version
+  pro: Udaane ka hai
   all: All Notes
   folders: Folders
   fs: File System
@@ -325,7 +325,7 @@ setup:
     title: In order to access this repository, this public key must be copied as a deploy key
     step1: 1. Copy the key
     step2a: 2. Open webpage, and paste the deploy key. Make sure it is given Write Access.
-    step2b: 2. Give this SSH Key access to the git repo. (You need to figure it out yourself)
+    step2b: 2. Give this SSH Key access to the git repo.
     step3: 3. Try Cloning ..
     copy: Copy Key
     copied: Public Key copied to Clipboard
@@ -344,8 +344,12 @@ setup:
     password: Password
   cloning: Cloning ...
   host:
-    title: Select a Git Hosting Provider -
-    custom: Custom
+    title: > 
+      Create a GitHub Repository
+
+      
+      Press next after you have a GitHub Repository
+    custom: Next
   autoConfigure:
     title: How do you want to do this?
     automatic: Setup Automatically

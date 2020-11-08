@@ -50,24 +50,10 @@ class AppDrawer extends StatelessWidget {
         // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: <Widget>[
-          _AppDrawerHeader(),
+          // _AppDrawerHeader(),
+          divider,
+          divider,
           if (setupGitButton != null) ...[setupGitButton, divider],
-          if (!appSettings.proMode)
-            _buildDrawerTile(
-              context,
-              icon: Icons.power,
-              title: tr('drawer.pro'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, "/purchase");
-
-                logEvent(
-                  Event.PurchaseScreenOpen,
-                  parameters: {"from": "drawer"},
-                );
-              },
-            ),
-          if (!appSettings.proMode) divider,
           _buildDrawerTile(
             context,
             icon: Icons.note,
@@ -75,131 +61,131 @@ class AppDrawer extends StatelessWidget {
             onTap: () => _navTopLevel(context, '/'),
             selected: currentRoute == '/',
           ),
-          _buildDrawerTile(
-            context,
-            icon: Icons.folder,
-            title: tr('drawer.folders'),
-            onTap: () => _navTopLevel(context, '/folders'),
-            selected: currentRoute == "/folders",
-          ),
-          if (appSettings.experimentalFs)
-            _buildDrawerTile(
-              context,
-              icon: FontAwesomeIcons.solidFolderOpen,
-              isFontAwesome: true,
-              title: tr('drawer.fs'),
-              onTap: () => _navTopLevel(context, '/filesystem'),
-              selected: currentRoute == "/filesystem",
-            ),
-          if (appSettings.experimentalGraphView)
-            _buildDrawerTile(
-              context,
-              icon: FontAwesomeIcons.projectDiagram,
-              isFontAwesome: true,
-              title: tr('drawer.graph'),
-              onTap: () => _navTopLevel(context, '/graph'),
-              selected: currentRoute == "/graph",
-            ),
-          _buildDrawerTile(
-            context,
-            icon: FontAwesomeIcons.tag,
-            isFontAwesome: true,
-            title: tr('drawer.tags'),
-            onTap: () => _navTopLevel(context, '/tags'),
-            selected: currentRoute == "/tags",
-          ),
+          // _buildDrawerTile(
+          //   context,
+          //   icon: Icons.folder,
+          //   title: tr('drawer.folders'),
+          //   onTap: () => _navTopLevel(context, '/folders'),
+          //   selected: currentRoute == "/folders",
+          // ),
+          // if (appSettings.experimentalFs)
+          //   _buildDrawerTile(
+          //     context,
+          //     icon: FontAwesomeIcons.solidFolderOpen,
+          //     isFontAwesome: true,
+          //     title: tr('drawer.fs'),
+          //     onTap: () => _navTopLevel(context, '/filesystem'),
+          //     selected: currentRoute == "/filesystem",
+          //   ),
+          // if (appSettings.experimentalGraphView)
+          //   _buildDrawerTile(
+          //     context,
+          //     icon: FontAwesomeIcons.projectDiagram,
+          //     isFontAwesome: true,
+          //     title: tr('drawer.graph'),
+          //     onTap: () => _navTopLevel(context, '/graph'),
+          //     selected: currentRoute == "/graph",
+          //   ),
+          // _buildDrawerTile(
+          //   context,
+          //   icon: FontAwesomeIcons.tag,
+          //   isFontAwesome: true,
+          //   title: tr('drawer.tags'),
+          //   onTap: () => _navTopLevel(context, '/tags'),
+          //   selected: currentRoute == "/tags",
+          // ),
           divider,
-          _buildDrawerTile(
-            context,
-            icon: Icons.share,
-            title: tr('drawer.share'),
-            onTap: () {
-              Navigator.pop(context);
-              Share.share('Checkout GitJournal https://gitjournal.io/');
+          // _buildDrawerTile(
+          //   context,
+          //   icon: Icons.share,
+          //   title: tr('drawer.share'),
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //     Share.share('Checkout GitJournal https://gitjournal.io/');
 
-              logEvent(Event.DrawerShare);
-            },
-          ),
-          _buildDrawerTile(
-            context,
-            icon: Icons.feedback,
-            title: tr('drawer.rate'),
-            onTap: () {
-              LaunchReview.launch(
-                androidAppId: "io.gitjournal.gitjournal",
-                iOSAppId: "1466519634",
-              );
+          //     logEvent(Event.DrawerShare);
+          //   },
+          // ),
+          // _buildDrawerTile(
+          //   context,
+          //   icon: Icons.feedback,
+          //   title: tr('drawer.rate'),
+          //   onTap: () {
+          //     LaunchReview.launch(
+          //       androidAppId: "io.gitjournal.gitjournal",
+          //       iOSAppId: "1466519634",
+          //     );
 
-              Navigator.pop(context);
-              logEvent(Event.DrawerRate);
-            },
-          ),
-          _buildDrawerTile(
-            context,
-            icon: Icons.rate_review,
-            title: tr('drawer.feedback'),
-            onTap: () async {
-              var platform = Platform.operatingSystem;
-              var versionText = await getVersionString();
-              var isPro = AppSettings.instance.proMode;
+          //     Navigator.pop(context);
+          //     logEvent(Event.DrawerRate);
+          //   },
+          // ),
+          // _buildDrawerTile(
+          //   context,
+          //   icon: Icons.rate_review,
+          //   title: tr('drawer.feedback'),
+          //   onTap: () async {
+          //     var platform = Platform.operatingSystem;
+          //     var versionText = await getVersionString();
+          //     var isPro = AppSettings.instance.proMode;
 
-              var body =
-                  "Hey!\n\nHere are some ways to improve GitJournal - \n \n\n";
-              body += "Version: $versionText\n";
-              body += "Platform: $platform\n";
-              body += "isPro: $isPro\n";
+          //     var body =
+          //         "Hey!\n\nHere are some ways to improve GitJournal - \n \n\n";
+          //     body += "Version: $versionText\n";
+          //     body += "Platform: $platform\n";
+          //     body += "isPro: $isPro\n";
 
-              var exp = AppSettings.instance.proExpirationDate;
-              if (exp != null && exp.isNotEmpty) {
-                body += "expiryDate: $exp";
-              }
+          //     var exp = AppSettings.instance.proExpirationDate;
+          //     if (exp != null && exp.isNotEmpty) {
+          //       body += "expiryDate: $exp";
+          //     }
 
-              body = Uri.encodeComponent(body);
+          //     body = Uri.encodeComponent(body);
 
-              var subject = 'GitJournal Feedback';
-              subject = Uri.encodeComponent(subject);
+          //     var subject = 'GitJournal Feedback';
+          //     subject = Uri.encodeComponent(subject);
 
-              var emailAddress = 'feedback@gitjournal.io';
+          //     var emailAddress = 'feedback@gitjournal.io';
 
-              var url = 'mailto:$emailAddress?subject=$subject&body=$body';
-              launch(url);
+          //     var url = 'mailto:$emailAddress?subject=$subject&body=$body';
+          //     launch(url);
 
-              Navigator.pop(context);
-              logEvent(Event.DrawerFeedback);
-            },
-          ),
-          _buildDrawerTile(
-            context,
-            icon: Icons.bug_report,
-            title: tr('drawer.bug'),
-            onTap: () async {
-              var platform = Platform.operatingSystem;
-              var versionText = await getVersionString();
-              var isPro = AppSettings.instance.proMode;
+          //     Navigator.pop(context);
+          //     logEvent(Event.DrawerFeedback);
+          //   },
+          // ),
+          // _buildDrawerTile(
+          //   context,
+          //   icon: Icons.bug_report,
+          //   title: tr('drawer.bug'),
+          //   onTap: () async {
+          //     var platform = Platform.operatingSystem;
+          //     var versionText = await getVersionString();
+          //     var isPro = AppSettings.instance.proMode;
 
-              var body = "Hey!\n\nI found a bug in GitJournal - \n \n\n";
-              body += "Version: $versionText\n";
-              body += "Platform: $platform\n";
-              body += "isPro: $isPro\n";
+          //     var body = "Hey!\n\nI found a bug in GitJournal - \n \n\n";
+          //     body += "Version: $versionText\n";
+          //     body += "Platform: $platform\n";
+          //     body += "isPro: $isPro\n";
 
-              var exp = AppSettings.instance.proExpirationDate;
-              if (exp != null && exp.isNotEmpty) {
-                body += "expiryDate: $exp";
-              }
+          //     var exp = AppSettings.instance.proExpirationDate;
+          //     if (exp != null && exp.isNotEmpty) {
+          //       body += "expiryDate: $exp";
+          //     }
 
-              final Email email = Email(
-                body: body,
-                subject: 'GitJournal Bug',
-                recipients: ['bugs@gitjournal.io'],
-                attachmentPaths: Log.filePathsForDates(2),
-              );
+          //     final Email email = Email(
+          //       body: body,
+          //       subject: 'GitJournal Bug',
+          //       recipients: ['bugs@gitjournal.io'],
+          //       attachmentPaths: Log.filePathsForDates(2),
+          //     );
 
-              await FlutterEmailSender.send(email);
+          //     await FlutterEmailSender.send(email);
 
-              Navigator.pop(context);
-              logEvent(Event.DrawerBugReport);
-            },
-          ),
+          //     Navigator.pop(context);
+          //     logEvent(Event.DrawerBugReport);
+          //   },
+          // ),
           _buildDrawerTile(
             context,
             icon: Icons.settings,
@@ -290,14 +276,14 @@ class _AppDrawerHeader extends StatelessWidget {
             color: Theme.of(context).highlightColor,
           ),
           child: const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/icon/icon.png'),
-                ),
-              ),
-            ),
+            padding: EdgeInsets.all(1.0),
+            // child: DecoratedBox(
+            //   decoration: BoxDecoration(
+            //     image: DecorationImage(
+            //       image: AssetImage('assets/icon/icon.png'),
+            //     ),
+            //   ),
+            // ),
           ),
         ),
         /*
@@ -329,16 +315,16 @@ class _AppDrawerHeader extends StatelessWidget {
               child: ProButton(),
             ),
           ),
-        Positioned.fill(
-          child: Align(
-            alignment: Alignment.topRight,
-            child: SafeArea(
-                child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 16, 16, 0),
-              child: ThemeSwitcherButton(),
-            )),
-          ),
-        ),
+        // Positioned.fill(
+        //   child: Align(
+        //     alignment: Alignment.topRight,
+        //     child: SafeArea(
+        //         child: Padding(
+        //       padding: const EdgeInsets.fromLTRB(0, 16, 16, 0),
+        //       child: ThemeSwitcherButton(),
+        //     )),
+        //   ),
+        // ),
       ],
       fit: StackFit.passthrough,
     );
