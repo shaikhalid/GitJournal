@@ -186,17 +186,17 @@ class AppDrawer extends StatelessWidget {
           //     logEvent(Event.DrawerBugReport);
           //   },
           // ),
-          // _buildDrawerTile(
-          //   context,
-          //   icon: Icons.settings,
-          //   title: tr('settings.title'),
-          //   onTap: () {
-          //     Navigator.pop(context);
-          //     Navigator.pushNamed(context, "/settings");
+          _buildDrawerTile(
+            context,
+            icon: Icons.settings,
+            title: tr('settings.title'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/settings");
 
-          //     logEvent(Event.DrawerSettings);
-          //   },
-          // ),
+              logEvent(Event.DrawerSettings);
+            },
+          ),
         ],
       ),
     );

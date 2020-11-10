@@ -535,7 +535,8 @@ class Note with NotesNotifier {
         return toSimpleDateTime(date);
       case NoteFileNameFormat.FromTitle:
         if (title.isNotEmpty) {
-          return buildTitleFileName(parent.folderPath, title);
+          return buildTitleFileName(
+              toSimpleDateTime(date), parent.folderPath, title);
         } else {
           return toSimpleDateTime(date);
         }
@@ -573,11 +574,11 @@ class Note with NotesNotifier {
   }
 }
 
-String buildTitleFileName(String parentDir, String title) {
+String buildTitleFileName(String date, String parentDir, String title) {
   // Sanitize the title - these characters are not allowed in Windows
   title = title.replaceAll(RegExp(r'[/<\>":|?*]'), '_');
-
-  var fileName = title + ".md";
+  title = title.replaceAll(RegExp(r' '), '-');
+  var fileName = date + '-' + title + ".md";
   var fullPath = p.join(parentDir, fileName);
   var file = File(fullPath);
   if (!file.existsSync()) {
@@ -585,7 +586,7 @@ String buildTitleFileName(String parentDir, String title) {
   }
 
   for (var i = 1;; i++) {
-    var fileName = title + "_$i.md";
+    var fileName = date + '-' + title + "_$i.md";
     var fullPath = p.join(parentDir, fileName);
     var file = File(fullPath);
     if (!file.existsSync()) {

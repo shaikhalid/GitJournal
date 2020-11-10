@@ -204,6 +204,7 @@ class SettingsListState extends State<SettingsList> {
             builder: (context) => FolderSelectionDialog(),
           );
           if (destFolder != null) {
+            print(destFolder.pathSpec());
             settings.defaultNewNoteFolderSpec = destFolder.pathSpec();
             settings.save();
             setState(() {});

@@ -31,7 +31,7 @@ class Settings extends ChangeNotifier {
   String customMetaData = "";
 
   bool yamlHeaderEnabled = true;
-  String defaultNewNoteFolderSpec = "";
+  String defaultNewNoteFolderSpec = "_posts";
   String journalEditordefaultNewNoteFolderSpec = "";
   bool journalEditorSingleNote = false;
 

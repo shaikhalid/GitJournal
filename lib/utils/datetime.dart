@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 import 'package:gitjournal/utils/logger.dart';
 
-final _simpleDateFormat = DateFormat("yyyy-MM-dd-HH-mm-ss");
+final _simpleDateFormat = DateFormat("yyyy-MM-dd");
 final _iso8601DateFormat = DateFormat("yyyy-MM-ddTHH:mm:ss");
 final _zettleDateFormat = DateFormat("yyyyMMddHHmmss");
 
