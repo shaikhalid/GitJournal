@@ -76,14 +76,14 @@ class EditorAppBar extends StatelessWidget implements PreferredSizeWidget {
               : const Icon(Icons.edit),
           onPressed: onEditingModeChange,
         ),
-        IconButton(
-          key: const ValueKey("EditorSelector"),
-          icon: const Icon(Icons.library_books),
-          onPressed: () {
-            var note = editorState.getNote();
-            editor.noteEditorChooserSelected(note);
-          },
-        ),
+        // IconButton(
+        //   key: const ValueKey("EditorSelector"),
+        //   icon: const Icon(Icons.library_books),
+        //   onPressed: () {
+        //     var note = editorState.getNote();
+        //     editor.noteEditorChooserSelected(note);
+        //   },
+        // ),
         IconButton(
           icon: const Icon(Icons.delete),
           onPressed: () {
@@ -160,17 +160,17 @@ class EditorBottomBar extends StatelessWidget {
               maintainState: true,
               maintainInteractivity: false,
             ),
-            Expanded(
-              child: FlatButton.icon(
-                icon: const Icon(Icons.folder),
-                label: Text(parentFolder.publicName),
-                onPressed: () {
-                  var note = editorState.getNote();
-                  editor.moveNoteToFolderSelected(note);
-                },
-              ),
-            ),
-            menuIcon,
+            // Expanded(
+            //   child: FlatButton.icon(
+            //     icon: const Icon(Icons.folder),
+            //     label: Text(parentFolder.publicName),
+            //     onPressed: () {
+            //       var note = editorState.getNote();
+            //       editor.moveNoteToFolderSelected(note);
+            //     },
+            //   ),
+            // ),
+            // menuIcon,
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         ),

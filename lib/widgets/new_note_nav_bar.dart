@@ -17,27 +17,27 @@ class NewNoteNavBar extends StatelessWidget {
       shape: const CircularNotchedRectangle(),
       child: Row(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: IconButton(
-              icon: const FaIcon(FontAwesomeIcons.tasks),
-              onPressed: () => onPressed(EditorType.Checklist),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: IconButton(
-              icon: const FaIcon(FontAwesomeIcons.markdown),
-              onPressed: () => onPressed(EditorType.Markdown),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: IconButton(
-              icon: const FaIcon(FontAwesomeIcons.book),
-              onPressed: () => onPressed(EditorType.Journal),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(4.0),
+          //   child: IconButton(
+          //     icon: const FaIcon(FontAwesomeIcons.tasks),
+          //     onPressed: () => onPressed(EditorType.Checklist),
+          //   ),
+          // ),
+          // Padding(
+          //   padding: const EdgeInsets.all(4.0),
+          //   child: IconButton(
+          //     icon: const FaIcon(FontAwesomeIcons.markdown),
+          //     onPressed: () => onPressed(EditorType.Markdown),
+          //   ),
+          // ),
+          // Padding(
+          //   padding: const EdgeInsets.all(4.0),
+          //   child: IconButton(
+          //     icon: const FaIcon(FontAwesomeIcons.book),
+          //     onPressed: () => onPressed(EditorType.Journal),
+          //   ),
+          // ),
         ],
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

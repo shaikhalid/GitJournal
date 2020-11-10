@@ -28,9 +28,9 @@ class AppRouter {
 
   String initialRoute() {
     var route = '/';
-    if (!appSettings.onBoardingCompleted) {
-      route = '/onBoarding';
-    }
+    // if (!appSettings.onBoardingCompleted) {
+    //   route = '/onBoarding';
+    // }
     if (settings.homeScreen == SettingsHomeScreen.AllFolders) {
       route = '/folders';
     }

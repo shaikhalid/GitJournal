@@ -444,11 +444,11 @@ class _FolderViewState extends State<FolderView> {
     );
 
     return <Widget>[
-      IconButton(
-        icon: const Icon(Icons.library_books),
-        onPressed: _folderViewChooserSelected,
-        key: const ValueKey("FolderViewSelector"),
-      ),
+      // IconButton(
+      //   icon: const Icon(Icons.library_books),
+      //   onPressed: _folderViewChooserSelected,
+      //   key: const ValueKey("FolderViewSelector"),
+      // ),
       if (repo.remoteGitRepoConfigured) SyncButton(),
       IconButton(
         icon: const Icon(Icons.search),
@@ -462,7 +462,7 @@ class _FolderViewState extends State<FolderView> {
           );
         },
       ),
-      extraActions,
+      // extraActions,
     ];
   }
 

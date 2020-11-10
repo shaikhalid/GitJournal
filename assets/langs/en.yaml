@@ -200,7 +200,7 @@ screens:
       decoration: File Name
       title: Rename
   folder_view:
-    empty: Let's add some notes?
+    empty: Let's write some Blogs
 
 OnBoarding:
   Skip: Skip

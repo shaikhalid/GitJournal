@@ -164,36 +164,36 @@ class SettingsListState extends State<SettingsList> {
           dynamicTheme.setBrightness(b);
         },
       ),
-      ProOverlay(
-        feature: Feature.customizeHomeScreen,
-        child: ListPreference(
-          title: tr('settings.display.homeScreen'),
-          currentOption: settings.homeScreen.toPublicString(),
-          options: SettingsHomeScreen.options
-              .map((f) => f.toPublicString())
-              .toList(),
-          onChange: (String publicStr) {
-            var s = SettingsHomeScreen.fromPublicString(publicStr);
-            settings.homeScreen = s;
-            settings.save();
-            setState(() {});
-          },
-        ),
-      ),
-      ProOverlay(
-        feature: Feature.configureBottomMenuBar,
-        child: ListTile(
-          title: Text(tr("settings.bottomMenuBar.title")),
-          subtitle: Text(tr("settings.bottomMenuBar.subtitle")),
-          onTap: () {
-            var route = MaterialPageRoute(
-              builder: (context) => BottomMenuBarSettings(),
-              settings: const RouteSettings(name: '/settings/bottom_menu_bar'),
-            );
-            Navigator.of(context).push(route);
-          },
-        ),
-      ),
+      // ProOverlay(
+      //   feature: Feature.customizeHomeScreen,
+      //   child: ListPreference(
+      //     title: tr('settings.display.homeScreen'),
+      //     currentOption: settings.homeScreen.toPublicString(),
+      //     options: SettingsHomeScreen.options
+      //         .map((f) => f.toPublicString())
+      //         .toList(),
+      //     onChange: (String publicStr) {
+      //       var s = SettingsHomeScreen.fromPublicString(publicStr);
+      //       settings.homeScreen = s;
+      //       settings.save();
+      //       setState(() {});
+      //     },
+      //   ),
+      // ),
+      // ProOverlay(
+      //   feature: Feature.configureBottomMenuBar,
+      //   child: ListTile(
+      //     title: Text(tr("settings.bottomMenuBar.title")),
+      //     subtitle: Text(tr("settings.bottomMenuBar.subtitle")),
+      //     onTap: () {
+      //       var route = MaterialPageRoute(
+      //         builder: (context) => BottomMenuBarSettings(),
+      //         settings: const RouteSettings(name: '/settings/bottom_menu_bar'),
+      //       );
+      //       Navigator.of(context).push(route);
+      //     },
+      //   ),
+      // ),
       SettingsHeader(tr('settings.note.title')),
       ListTile(
         title: Text(tr('settings.note.defaultFolder')),
